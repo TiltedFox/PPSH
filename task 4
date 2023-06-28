@@ -1,0 +1,25 @@
+#1
+Ответ: [2, 2, 2]
+
+#2
+Ответ: [1, 2, 2]
+
+#3
+n = int(input())
+a = [int(input()) for x in range(n)]
+print(sum(a)/len(a))
+Ответ: 4.2
+
+#4
+n, m = map(int, input().split())
+a = [int(input()) for x in range(n)]
+print(a[m])
+
+#5
+n = int(input())
+a = [int(input()) for x in range(n)]
+s = 0
+for i in range(0, n, 2):
+    s += a[i]
+print(s)
+Ответ: 6
