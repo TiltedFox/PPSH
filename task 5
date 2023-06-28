@@ -1,0 +1,47 @@
+#1
+n = int(input())
+for i in range(n + 1):
+    if i % 3 == 0 and i % 6 != 0:
+        print(i)
+Ответ: 3 9 15
+
+#2
+for i in range(10, n + 1):
+    if i % 10 % 2 == 0:
+        print(i)
+Ответ: 10 12 14 16
+
+#3
+n = int(input())
+if n % 2 == 0:
+    a = [x for x in range(2, n + 1, 2)]
+    print(len(a))
+else:
+    a = [x for x in range(1, n + 1, 2)]
+    print(sum(a))
+Ответ: 50 2500
+
+#4
+n = int(input())
+if n % 3 == 0:
+    k = 0
+    m = int(input())
+    for i in range(1, n + 1):
+        if i % m == 0:
+            k += 1
+    print(k)
+else:
+    for i in range(1, n + 1):
+        print(n**i, end = ' ')
+Ответ: 8 64 512 4096 32768 262144 2097152 16777216 14
+
+#5
+a, b, n = map(int, input().split())
+mass = [int(input()) for x in range(n)]
+k = 0
+for i in mass:
+    if i > 10 and (i % 4 == 0 or i % 3 == 0):
+        if a**2 + b**2 == i**2:
+            k += 1
+print(k)
+Ответ: 1
