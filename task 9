@@ -1,0 +1,55 @@
+#1
+def summa(x):
+    s = 0
+    for i in x:
+        s += i
+    return s
+print(summa([int(x) for x in input().split()]))
+
+#2
+def diap(x, y, z):
+    if x <= z and x >= y:
+        return True
+    return False
+print(diap(7, 1, 9))
+
+#3
+def divs(x):
+    a = [1]
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
+            a.append(i)
+            if i != x // i:
+                a.append(x // i)
+    return a
+
+chislo = int(input())
+if chislo == sum(divs(chislo)):
+    print(True)
+else: print(False)
+
+#4
+def palind(x):
+    x = str(x)
+    if x == x[::-1]:
+        return True
+    return False
+print(palind(1234567899876554321))
+
+#5
+def is_prime(x):
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
+            return False
+    return True
+print(is_prime(123321))
+
+#6
+def fibonacci(n):
+    if n == 1:
+        return 0
+    if n == 2 or n == 3:
+        return 1
+    if n > 3:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+print(fibonacci(10))
