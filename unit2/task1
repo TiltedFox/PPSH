@@ -1,0 +1,47 @@
+#1
+ans: 108
+
+#2
+import copy
+a = [int(input()) for x in range(5)]
+b = a[:]
+c = a.copy()
+d = copy.copy(a)
+e = copy.deepcopy(a)
+f = list(a)
+ans: 5 35
+
+#3
+ans: 966
+
+#4
+import sys
+animals = ["cat", "cat", "dog", "dog", "bird", "capybara", "capybara", "capybara"]
+a = {}
+for x in animals:
+    a[x] = animals.count(x)
+print(sum([sys.getrefcount(i) for i in set(animals)]), end = ' ')
+print(sum([sys.getrefcount(i) for i in range(1, 4)]))
+ans: 37 3000000127
+
+#5
+backpack = ["capybara", "capyraba", "capyba", "capyba", "capybara", 2999, 2999, "capybara", [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]] + [[8, 8]] * 5
+kolvoIs = 0
+kolvoRav = 0
+for i in range(len(backpack)):
+    for j in range(i + 1, len(backpack)):
+        if backpack[i] == backpack[j]:
+            kolvoRav += 1
+        if backpack[i] is backpack[j]:
+            kolvoIs += 1
+print(kolvoIs, kolvoRav)
+ans: 15 21
+
+#6
+import copy
+salad = ['lettuce', 'chicken', 'cheese', 'sauce', 'tomatoes', 'croutons']
+salad.append(salad)
+correctSalad = copy.copy(salad)
+salad.append('salt')
+salad.append('pepper')
+ans: tomatoes pepper
