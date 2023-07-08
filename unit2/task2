@@ -1,0 +1,33 @@
+#1
+ans: 4 1 
+     5 6
+
+#2
+ans: П
+     П
+     Ш
+
+#3
+ans: bee
+
+#4
+ans: True
+     False
+
+#5
+ans: 1 4 16
+
+#6
+a = (x**2 for x in range(1, 6))
+print(next(a))
+next(a)
+print(next(a))
+next(a)
+print(next(a))
+ans: 1 9 25
+
+#7
+numbers = [str(x) for x in range(6, 11)] + ['Валет', 'Королева', 'Король', 'Туз']
+suit = ['Крести', 'Пики', 'Черви', 'Бубны']
+deck = (x + ' ' + y for y in suit for x in numbers)
+print(next(deck))
