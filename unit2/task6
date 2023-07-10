@@ -1,0 +1,74 @@
+#1
+def whole_file(file):
+    with open(file) as f:
+        print(f.read())
+
+#2
+def first_line(file):
+    with open(file) as f:
+        print(f.readline())
+
+#3
+def all_lines_bad(file):
+    with open(file) as f:
+        print(f.readlines())
+#4
+def all_lines_good(file):
+    with open(file) as f:
+        print(f.read().split('\n'))
+#5
+def in_lines(file):
+    with open(file) as f:
+        for line in f:
+            print(line.rstrip())
+
+#6
+def space_between_lines(file):
+    with open(file) as f:
+        print(' '.join(f.readlines()))
+
+#7
+def clean_string(s):
+    print(s.rstrip())
+
+#8
+def strange_string(s):
+    print(s.rstrip('!?.'))
+
+#9
+def newFile(name, a):
+    with open(name, 'w') as f:
+        f.write(a)
+
+#10
+def newFilePlus(name, a):
+    with open(name, 'w') as f:
+        f.write(a + '\n')
+
+#11
+def newFileList(name, a):
+    with open(name, 'w') as f:
+        f.write('\n'.join(a))
+
+#12
+def fileToFile(file1, file2):
+    with open(file1) as f1, open(file2, 'w') as f2:
+        print(f1.read(), file = f2)
+
+#13
+def fileToFileHW(file1, file2):
+    with open(file1) as f1, open(file2, 'w') as f2:
+        for line in f1:
+            line = line.rstrip()
+            if line.startswith('hello') and line.endswith('world'):
+                f2.write(line + '\n')
+
+#14
+def petsDict(file):
+    dictionary = {}
+    with open(file) as f:
+        for line in f:
+            L1 = line.split()
+            if L1[2].isdigit():
+                dictionary[L1[0]] = (L1[1], int(L1[2]))
+    return dictionary
