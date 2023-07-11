@@ -1,0 +1,33 @@
+#1
+def sum_numbres(*args):
+    return sum(args)
+
+#2
+def print_kwargs(**kwargs):
+    for key, element in kwargs.items():
+        print(f'{key}: {element}')
+
+#3
+def filter_by_length(min_length, *args):
+    L1 = []
+    for element in args:
+        if len(element) >= min_length:
+            L1.append(element)
+    return L1
+
+#4
+def calculate_total_price(price, **kwargs):
+    total_discount = sum([kwargs[x]for x in kwargs])
+    return price * (1 - total_discount * 0.01)
+
+#5
+def custom_print(*args, **kwargs):
+    separ = kwargs.get('sep', ' ')
+    End = kwargs.get('end', '\n')
+    string = list(map(str, args))
+
+    for key, value in kwargs.items():
+        if key != 'sep' and key != 'end':
+            string.append(f'{key}={value}')
+            
+    print(separ.join(string) + End)
