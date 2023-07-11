@@ -1,0 +1,38 @@
+#1
+import time
+def timer(func):
+    def inside_func(*args, **kwargs):
+        st = time.time()
+        func(*args, **kwargs)
+        fn = time.time()
+        print(f'Программа работала {fn - st} секунд')
+    return inside_func
+
+#2
+def cache(func):
+    cache_values = {}
+    def inside_func(x):
+        if x not in cache_values:
+            cache_values[x] = func(x)
+        return cache_values[x]
+    return inside_func
+
+#3
+def logging(func):
+    def inside_func(*args, **kwargs):
+        with open('log', 'w') as f:
+            f.write(f'Запуск функции {func.__name__} с аргументами {args}  {kwargs}')
+    return inside_func
+
+#4
+import time
+def retry(func):
+    def inside_func(number, sleep_time):
+        for _ in range(number):
+            print(f'Попытка номер {_+1}')
+            result = func()
+            if result != None:
+                break
+            else:
+                time.sleep(sleep_time)
+    return inside_func
