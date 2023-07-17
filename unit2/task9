@@ -1,0 +1,86 @@
+#1
+delim, delit = map(float, input().split(' / '))
+try:
+    print(delim / delit)
+except ZeroDivisionError:
+    print('ERROR')
+
+#2
+def passwords(*args):
+    rightPasswords = []
+    for elem in args:
+        try:
+            _ = int(elem, 16)
+            rightPasswords.append(elem)
+        except ValueError:
+            print(f'{elem} не может быть паролем')
+    return rightPasswords
+
+#3
+def olympChecker(name):
+    try:
+        print(olympiad1['name'], 'победитель', olympiad1['winners'][name])
+    except KeyError:
+        print(olympiad1['name'], 'призёр')
+    finally:
+        print('-' * 20)
+    try:
+        print(olympiad2['name'], 'победитель', olympiad2['winners'][name][4])
+    except IndexError:
+        print(olympiad2['name'], 'победитель')
+    except KeyError:
+        print(olympiad1['name'], 'призёр')
+    finally:
+        print('-' * 20)
+
+#4
+def eternalCycle():
+    try:
+        while True:
+            pass
+    except KeyboardInterrupt:
+        print('Нет')
+        eternalCycle()
+
+#5
+class lizardProblem(Exception):
+    pass
+class toiletProblem(Exception):
+    pass
+
+def errorFinder(order):
+    try:
+        assert int(order) != 2
+
+        if order == '0' or order == '99999':
+            raise ValueError
+    
+        if order == '-1' or order == 'qwerty':
+            raise IndexError
+
+        if order == 'ящерица в стакане':
+            raise lizardProblem
+        
+        if order == 'А где у вас туалет?':
+            raise toiletProblem
+
+    except AssertionError:
+        print('Сегодня только одна кружка за заказ')
+
+    except ValueError:
+        print('Сделайте адекватный заказ')
+
+    except IndexError:
+        print('Пожалуйста, закажите натуральное число кружек')
+
+    except lizardProblem:
+        print('Ящерицы закончились, сегодня только лимонад')
+
+    except toiletProblem:
+        print('Бар внезапно загорелся')
+
+    finally:
+        print('Спасибо за заказ, приходите ещё!')
+
+order = input('Сколько кружек лимонада вы хотите заказать?\n')
+errorFinder(order)
