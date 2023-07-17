@@ -25,7 +25,8 @@ def in_lines(file):
 #6
 def space_between_lines(file):
     with open(file) as f:
-        print(' '.join(f.readlines()))
+        return ' '.join(f.readlines()).replace('\n', '')
+print(space_between_lines('...'))
 
 #7
 def clean_string(s):
@@ -33,7 +34,8 @@ def clean_string(s):
 
 #8
 def strange_string(s):
-    print(s.rstrip('!?.'))
+    return s.rstrip('!?.')
+print(strange_string('Какая-то строка!'))
 
 #9
 def newFile(name, a):
